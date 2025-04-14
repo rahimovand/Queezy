@@ -38,47 +38,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            QueezyTheme {
 
-                val sheetState = rememberModalBottomSheetState()
-                var isSheetOpen by rememberSaveable { mutableStateOf(false) }
-
-                Surface(
-                    modifier = Modifier.fillMaxSize()
-                ) {
-                    Box(
-                        modifier = Modifier.fillMaxSize(),
-                        contentAlignment = Alignment.CenterStart
-                    ) {
-                        Button(
-                            onClick = {
-                                isSheetOpen = true
-                            }
-                        ) {
-                            Text("hello")
-                        }
-                    }
-                    if (isSheetOpen) {
-                        ModalBottomSheet(
-                            modifier = Modifier.fillMaxWidth().height(800.dp),
-                            sheetState = sheetState,
-                            onDismissRequest = {
-                                isSheetOpen = false
-                            }
-                        ) {
-                            Icon(imageVector = Icons.Default.Add, contentDescription = null)
-                        }
-                    }
-                }
-            }
         }
     }
 }
-
-/*
-
-50 -ta flag
-youtube type chooser
-if chosen was right some type of congrats
-when user closes application it wont store but it always will be mashed up
- */
