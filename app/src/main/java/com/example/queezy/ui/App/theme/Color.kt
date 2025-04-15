@@ -1,4 +1,4 @@
-package com.example.queezy.ui.theme
+package com.example.queezy.ui.App.theme
 
 import androidx.compose.ui.graphics.Color
 

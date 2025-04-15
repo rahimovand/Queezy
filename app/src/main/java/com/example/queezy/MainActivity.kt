@@ -31,7 +31,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.example.queezy.ui.theme.QueezyTheme
+import com.example.queezy.ui.App.App
+import com.example.queezy.ui.App.screens.MainScreen
+import com.example.queezy.ui.App.theme.QueezyTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +41,9 @@ class MainActivity : ComponentActivity() {
         installSplashScreen()
         enableEdgeToEdge()
         setContent {
-
+            QueezyTheme {
+                App()
+            }
         }
     }
 }
