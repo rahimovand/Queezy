@@ -39,9 +39,7 @@ class MainActivity : ComponentActivity() {
         installSplashScreen()
         enableEdgeToEdge()
         setContent {
-            Box(Modifier.fillMaxSize()){
 
-            }
         }
     }
 }

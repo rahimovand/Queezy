@@ -1,4 +1,4 @@
-package com.example.queezy.model
+package com.example.queezy.data
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
