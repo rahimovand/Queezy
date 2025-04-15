@@ -9,3 +9,11 @@ data class Quiz(
     @DrawableRes
     val flag: Int
 )
+
+//object Items {
+//    fun getAllQuiz(): List<Quiz> {
+//        listOf(
+//            Quiz()
+//        )
+//    }
+//}
