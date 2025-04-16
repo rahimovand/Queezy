@@ -34,13 +34,11 @@ fun PointRep(
         verticalAlignment = Alignment.CenterVertically
     ) {
 
-        HorizontalDivider(modifier = modifier.width(10.dp))
-
         Card(
             modifier = modifier
                 .fillMaxWidth(0.25f)
                 .fillMaxHeight(0.07f)
-                .padding(start = 10.dp),
+                .padding(start = 5.dp),
             border = BorderStroke(
                 width = 1.dp,
                 color = MaterialTheme.colorScheme.onSecondaryContainer

@@ -1,9 +1,12 @@
 package com.example.queezy.ui.App
 
 
+import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -34,8 +37,8 @@ fun App(
             modifier = modifier.padding(paddingValues = paddingValues),
             navController = navController,
             startDestination = Screens.MainScreen.name,
-            exitTransition = { fadeOut(animationSpec = tween(1)) },
-            enterTransition = { fadeIn(animationSpec = tween(1)) }
+            exitTransition = { fadeOut(animationSpec = tween(25)) },
+            enterTransition = { fadeIn(animationSpec = tween(25)) }
         ) {
 
             composable(route = Screens.MainScreen.name) {
