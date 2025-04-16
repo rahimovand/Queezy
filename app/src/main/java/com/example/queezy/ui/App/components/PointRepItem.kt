@@ -36,9 +36,9 @@ fun PointRep(
 
         Card(
             modifier = modifier
-                .fillMaxWidth(0.25f)
-                .fillMaxHeight(0.07f)
-                .padding(start = 5.dp),
+                .fillMaxWidth(0.20f)
+                .fillMaxHeight(0.05f)
+                .padding(start = 2.dp),
             border = BorderStroke(
                 width = 1.dp,
                 color = MaterialTheme.colorScheme.onSecondaryContainer
@@ -59,9 +59,9 @@ fun PointRep(
             HorizontalDivider(
                 modifier = modifier
                     .padding(start = 10.dp)
-                    .weight(1f)
+                    .weight(1f),
+                color = MaterialTheme.colorScheme.outlineVariant
             )
         }
     }
-    Spacer(modifier = modifier.padding(10.dp))
 }

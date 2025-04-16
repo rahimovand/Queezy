@@ -1,22 +1,15 @@
 package com.example.queezy.ui.App.screens
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.layout.wrapContentWidth
-import androidx.compose.foundation.shape.CutCornerShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ElevatedButton
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
@@ -27,7 +20,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
@@ -38,6 +30,9 @@ import com.example.queezy.R
 import com.example.queezy.ui.App.components.FlagRep
 import com.example.queezy.ui.App.components.OptionRep
 import com.example.queezy.ui.App.components.PointRep
+import com.example.queezy.ui.App.theme.evenShape
+import com.example.queezy.ui.App.theme.oddShape
+import com.example.queezy.utils.Screens
 
 @Composable
 fun UserScreen(
@@ -45,16 +40,13 @@ fun UserScreen(
     navController: NavController
 ) {
 
-    val oddShape = CutCornerShape(bottomStart = 35.dp, topStart = 35.dp)
-    val evenShape = CutCornerShape(topEnd = 35.dp, bottomEnd = 35.dp)
     val optionList = remember { mutableStateListOf("Chile", "Portugal", "Argentina", "Uzbekistan") }
-    var choosenItem by rememberSaveable { mutableStateOf("") }
+    var chosenItem by rememberSaveable { mutableStateOf("") }
 
     Column(
         modifier = modifier
             .fillMaxSize()
-            .statusBarsPadding()
-            .navigationBarsPadding()
+            .padding(10.dp)
     ) {
         PointRep(
             score = "0"
@@ -65,13 +57,13 @@ fun UserScreen(
         )
 
         Column(modifier = modifier.padding(10.dp)) {
-            optionList.forEachIndexed { index, chosenItem ->
+            optionList.forEachIndexed { index, eachItem ->
                 OptionRep(
                     modifier = modifier,
-                    text = chosenItem,
+                    text = eachItem,
                     shape = if (index % 2 == 0) evenShape else oddShape,
-                    selected = choosenItem == chosenItem,
-                    onClick = { choosenItem = chosenItem }
+                    selected = chosenItem == eachItem,
+                    onClick = { chosenItem = eachItem }
                 )
             }
         }
@@ -86,9 +78,10 @@ fun UserScreen(
                     modifier = modifier
                         .fillMaxWidth()
                         .weight(1f)
-                        .padding(5.dp)
-                    ,
-                    onClick = {}
+                        .padding(5.dp),
+                    onClick = {
+                        navController.popBackStack()
+                    }
                 ) {
                     Text(
                         text = "Back",
@@ -99,8 +92,7 @@ fun UserScreen(
                     modifier = modifier
                         .fillMaxWidth()
                         .weight(1f)
-                        .padding(5.dp)
-                    ,
+                        .padding(5.dp),
                     onClick = {},
                     enabled = false
                 ) {
@@ -111,8 +103,10 @@ fun UserScreen(
                 }
             }
             Button(
-                modifier = modifier.fillMaxWidth(),
-                onClick = {}
+                modifier = modifier
+                    .fillMaxWidth()
+                    .padding(10.dp),
+                onClick = {  }
             ) {
                 Text("Finish")
             }

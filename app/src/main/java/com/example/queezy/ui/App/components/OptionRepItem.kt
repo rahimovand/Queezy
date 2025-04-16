@@ -52,7 +52,7 @@ fun OptionRep(
         Row(
             modifier = modifier
                 .padding(5.dp)
-                .height(60.dp)
+                .height(45.dp)
                 .fillMaxWidth()
                 .border(
                     width = 2.dp,
@@ -68,7 +68,7 @@ fun OptionRep(
                 selected = selected,
                 onClick = null,
                 colors = RadioButtonColors(
-                    selectedColor = Color.Red,
+                    selectedColor = MaterialTheme.colorScheme.onSecondaryContainer,
                     disabledSelectedColor = Color.Gray,
                     unselectedColor = Color.Gray,
                     disabledUnselectedColor = Color.Gray
@@ -77,7 +77,7 @@ fun OptionRep(
             Spacer(modifier = modifier.width(20.dp))
             Text(
                 text = text,
-                style = MaterialTheme.typography.titleLarge,
+                style = MaterialTheme.typography.titleSmall,
                 fontFamily = FontFamily.Monospace
             )
         }

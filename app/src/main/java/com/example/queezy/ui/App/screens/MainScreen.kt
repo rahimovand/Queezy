@@ -10,6 +10,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
@@ -20,6 +26,9 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.queezy.ui.App.components.StartButton
 import com.example.queezy.utils.Screens
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 @Composable
 fun MainScreen(
@@ -28,6 +37,7 @@ fun MainScreen(
     activity: Activity? = LocalActivity.current
 ) {
 
+
     Row(
         modifier = modifier
             .fillMaxSize()
@@ -35,10 +45,11 @@ fun MainScreen(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center
     ) {
-        for (i in 1..2){
-            VerticalDivider(modifier = modifier
-                .padding(start = 10.dp)
-                .rotate(10f)
+        for (i in 1..2) {
+            VerticalDivider(
+                modifier = modifier
+                    .padding(start = 10.dp)
+                    .rotate(10f)
             )
         }
 
@@ -67,10 +78,11 @@ fun MainScreen(
             )
         }
 
-        for (i in 1..2){
-            VerticalDivider(modifier = modifier
-                .padding(end = 10.dp)
-                .rotate(10f)
+        for (i in 1..2) {
+            VerticalDivider(
+                modifier = modifier
+                    .padding(end = 10.dp)
+                    .rotate(10f)
             )
         }
 
