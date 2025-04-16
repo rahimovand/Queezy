@@ -41,6 +41,7 @@ fun MainScreen(
                 .rotate(10f)
             )
         }
+
         Column(
             modifier = modifier
                 .fillMaxSize()
@@ -57,6 +58,7 @@ fun MainScreen(
             )
 
             HorizontalDivider(modifier = modifier.padding(top = 10.dp, bottom = 10.dp))
+
             StartButton(
                 text = "Exit",
                 onClick = {
@@ -64,6 +66,7 @@ fun MainScreen(
                 }
             )
         }
+
         for (i in 1..2){
             VerticalDivider(modifier = modifier
                 .padding(end = 10.dp)
