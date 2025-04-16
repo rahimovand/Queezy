@@ -26,6 +26,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.queezy.ui.App.components.StartButton
 import com.example.queezy.utils.Screens
+import com.example.queezy.utils.navigateOnce
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
@@ -64,7 +65,7 @@ fun MainScreen(
             StartButton(
                 text = "Start",
                 onClick = {
-                    navController.navigate(Screens.UserScreen.name)
+                    navController.navigateOnce(Screens.UserScreen.name)
                 }
             )
 

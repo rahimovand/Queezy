@@ -47,7 +47,7 @@ fun OptionRep(
         horizontalArrangement = Arrangement.Center
     ) {
         AnimatedVisibility(selected) {
-            HorizontalDivider(modifier = modifier.fillMaxWidth(0.05f))
+            HorizontalDivider(modifier = modifier.fillMaxWidth(0.5f), color = MaterialTheme.colorScheme.inversePrimary)
         }
         Row(
             modifier = modifier

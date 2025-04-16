@@ -1,6 +1,7 @@
 package com.example.queezy.ui.App
 
 
+import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
@@ -35,7 +36,6 @@ fun App(
 
     Scaffold(
         modifier = modifier,
-
         ) { paddingValues ->
         NavHost(
             modifier = modifier
@@ -43,20 +43,30 @@ fun App(
                 .padding(1.dp)
             ,
             navController = navController,
-            startDestination = Screens.MainScreen.name,
-            exitTransition = { scaleOut(animationSpec = tween(450)) },
-            enterTransition = { scaleIn(animationSpec = tween(400)) },
-            popExitTransition = { scaleOut(animationSpec = tween(300)) },
-            popEnterTransition = { scaleIn(animationSpec = tween(300)) }
+            startDestination = Screens.MainScreen.name ,
+            enterTransition = {
+                slideIntoContainer(
+                    AnimatedContentTransitionScope.SlideDirection.Up,
+                    animationSpec = tween(700)
+                )},
+            exitTransition =  {
+                slideOutOfContainer(
+                    AnimatedContentTransitionScope.SlideDirection.Down,
+                    animationSpec = tween(700)
+                )}
         ) {
 
-            composable(route = Screens.MainScreen.name) {
+            composable(
+                route = Screens.MainScreen.name
+            ) {
                 MainScreen(
                     modifier = modifier,
                     navController = navController
                 )
             }
-            composable(route = Screens.UserScreen.name) {
+            composable(
+                route = Screens.UserScreen.name
+            ) {
                 UserScreen(
                     modifier = modifier,
                     navController = navController
