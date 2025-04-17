@@ -16,10 +16,21 @@ A beautiful designed game application with a simple and interesting animations d
 
 ## 📸 Screenshots
 
-| Screenshot 1 | Screenshot 2 | Screenshot 3 | Screenshot 4 |
-|--------------|--------------|--------------|--------------|
-| ![Screenshot_20250418_001601](https://github.com/user-attachments/assets/60a4aa41-0934-4983-9abd-07d4f35d65d8) | ![Screenshot_20250418_002043](https://github.com/user-attachments/assets/76bea64f-c5b0-4a42-ab5b-ccce87eb485d) | ![Screenshot_20250418_002055](https://github.com/user-attachments/assets/32b49085-9440-4bf2-b01c-6b2bbfb4498c) | ![Screenshot_20250418_002115](https://github.com/user-attachments/assets/64587605-c195-4354-b604-2bfca97ccaea) |
+| Screenshot 1 | Screenshot 2 | Screenshot 3 |
+|--------------|--------------|--------------|
+ | ![Screenshot_20250418_002043](https://github.com/user-attachments/assets/76bea64f-c5b0-4a42-ab5b-ccce87eb485d) | ![Screenshot_20250418_002055](https://github.com/user-attachments/assets/32b49085-9440-4bf2-b01c-6b2bbfb4498c) | ![Screenshot_20250418_002115](https://github.com/user-attachments/assets/64587605-c195-4354-b604-2bfca97ccaea) |
 
-| Screenshot 5 | Screenshot 6 | Screenshot 7 | Screenshot 8 |
-|--------------|--------------|--------------|--------------|
-| ![Screenshot_20250418_001601](https://github.com/user-attachments/assets/c1b250f9-8f80-4e71-b211-3914ad4480e0) | ![Screenshot_20250418_001536](https://github.com/user-attachments/assets/87d871b4-418c-48eb-bf54-b76ee2273f4b) | ![Screenshot_20250418_001936](https://github.com/user-attachments/assets/d67ad25d-62e2-4d6a-ae8c-1e8b37811fc7) | ![Screenshot_20250418_002006](https://github.com/user-attachments/assets/2d4f7d09-27ac-45da-ad4d-2f9468339744) | 
+| Screenshot 5 | Screenshot 6 | Screenshot 7 |
+|--------------|--------------|--------------|
+| ![Screenshot_20250418_001536](https://github.com/user-attachments/assets/87d871b4-418c-48eb-bf54-b76ee2273f4b) | ![Screenshot_20250418_001936](https://github.com/user-attachments/assets/d67ad25d-62e2-4d6a-ae8c-1e8b37811fc7) | ![Screenshot_20250418_002006](https://github.com/user-attachments/assets/2d4f7d09-27ac-45da-ad4d-2f9468339744) | 
+
+
+## 🚀 Tech Stack
+
+- **Kotlin**
+- **Jetpack Compose**
+- **MVVM like Architecture**
+- **Static list data**
+- **ViewModels**
+- **Navigations for screens change**
+---
