@@ -1,6 +1,9 @@
 package com.example.queezy
 
+import android.content.ContentValues.TAG
+import android.nfc.Tag
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -45,5 +48,10 @@ class MainActivity : ComponentActivity() {
                 App()
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(TAG, "onDestroy: ")
     }
 }
