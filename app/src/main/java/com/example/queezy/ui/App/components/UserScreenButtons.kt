@@ -18,7 +18,7 @@ import com.example.queezy.utils.popBackStackOnce
 @Composable
 fun UserScreenButtons(
     modifier: Modifier,
-    isBackClicked: () -> Unit,
+    isHintClicked: () -> Unit,
     isFinishClicked: () -> Unit,
     isNextClicked: () -> Unit
 ) {
@@ -33,11 +33,11 @@ fun UserScreenButtons(
                     .fillMaxWidth()
                     .weight(1f)
                     .padding(5.dp),
-                onClick = isBackClicked,
+                onClick = isHintClicked,
                 enabled = false
             ) {
                 Text(
-                    text = "Back",
+                    text = "Hint",
                     style = MaterialTheme.typography.titleMedium
                 )
             }
@@ -47,7 +47,6 @@ fun UserScreenButtons(
                     .weight(1f)
                     .padding(5.dp),
                 onClick = isNextClicked,
-                enabled = false
             ) {
                 Text(
                     text = "Next",

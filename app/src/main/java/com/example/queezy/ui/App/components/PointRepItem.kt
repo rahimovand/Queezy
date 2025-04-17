@@ -1,5 +1,6 @@
 package com.example.queezy.ui.App.components
 
+import androidx.compose.animation.AnimatedContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.draggable
@@ -78,10 +79,12 @@ fun PointRep(
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text(
-                    text = score,
-                    style = MaterialTheme.typography.titleMedium
-                )
+                AnimatedContent(score) { it ->
+                    Text(
+                        text = it,
+                        style = MaterialTheme.typography.titleMedium
+                    )
+                }
             }
         }
     }

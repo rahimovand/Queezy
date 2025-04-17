@@ -1,17 +1,4 @@
 <resources>
     <string name="app_name">Queezy</string>
-    <string name="Egypt">Egypt</string>
-    <string name="United_Kingdom">United Kingdom</string>
-    <string name="Spain">Spain</string>
-    <string name="India">India</string>
-    <string name="Korea">Korea</string>
-    <string name="Nigeria">Nigeria</string>
-    <string name="Brazil">Brazil</string>
-    <string name="Poland">Poland</string>
-    <string name="Hungary">Hungary</string>
-    <string name="Germany">Germany</string>
-    <string name="UAE">UAE</string>
-    <string name="Venezuela">Venezuela</string>
-    <string name="Chile">Chile</string>
 
 </resources>

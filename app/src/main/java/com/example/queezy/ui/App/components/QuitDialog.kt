@@ -10,19 +10,19 @@ import androidx.compose.ui.Modifier
 
 @Composable
 fun QuitDialog(
-    modifier: Modifier = Modifier,
+    score:String,
     dissMissButton: () -> Unit,
     confirmButton: () -> Unit
 ) {
     AlertDialog(
         text = {
             Column {
-                Text("All the remaining of scores that you've made will be lost if you quit the game now")
+                Text("All the remaining of scores ( $score ) that you've made will be lost if you quit the game now")
             }
         },
         title = {
             Column {
-                Text("Quit the game")
+                Text("Quit the game?")
             }
         },
         onDismissRequest = {},

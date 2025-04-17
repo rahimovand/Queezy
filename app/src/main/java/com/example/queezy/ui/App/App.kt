@@ -18,9 +18,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.queezy.data.viewModel.QueezyViewModel
 import com.example.queezy.ui.App.screens.MainScreen
 import com.example.queezy.ui.App.screens.UserScreen
 import com.example.queezy.utils.Screens
@@ -33,27 +35,26 @@ fun App(
     modifier: Modifier = Modifier
 ) {
     val navController = rememberNavController()
+    val viewModel: QueezyViewModel = viewModel()
 
     Scaffold(
         modifier = modifier,
-        ) { paddingValues ->
+    ) { paddingValues ->
         NavHost(
             modifier = modifier
                 .padding(paddingValues = paddingValues)
-                .padding(1.dp)
-            ,
+                .padding(1.dp),
             navController = navController,
-            startDestination = Screens.MainScreen.name ,
+            startDestination = Screens.MainScreen.name,
             enterTransition = {
-                slideIntoContainer(
-                    AnimatedContentTransitionScope.SlideDirection.Up,
-                    animationSpec = tween(700)
-                )},
-            exitTransition =  {
-                slideOutOfContainer(
-                    AnimatedContentTransitionScope.SlideDirection.Down,
-                    animationSpec = tween(700)
-                )}
+                fadeIn(animationSpec = tween(400)) +
+                        slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Up
+                )
+            },
+            exitTransition = {
+                fadeOut(animationSpec = tween(400)) + slideOutOfContainer(
+                    AnimatedContentTransitionScope.SlideDirection.Up)
+            }
         ) {
 
             composable(
@@ -69,7 +70,8 @@ fun App(
             ) {
                 UserScreen(
                     modifier = modifier,
-                    navController = navController
+                    navController = navController,
+                    viewModel = viewModel
                 )
             }
 

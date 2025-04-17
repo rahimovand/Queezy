@@ -1,22 +1,25 @@
 package com.example.queezy.data.viewModel
 
 import android.content.Context
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.ViewModel
 import com.example.queezy.R
-import com.example.queezy.data.Quiz
+import com.example.queezy.data.model.Quiz
 import com.example.queezy.dataholder.DataSource
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-class QueezyViewModel(val context: Context) : ViewModel() {
+const val SCORE_INCREASE = 20
+const val SCORE_DECREASE = 4
 
-    private val _data = MutableStateFlow<List<Quiz>>(DataSource.getAllQuiz())
-    val data: StateFlow<List<Quiz>> = _data.asStateFlow()
-    private var score = mutableStateOf("0")
+class QueezyViewModel : ViewModel() {
+
+    private val data = MutableStateFlow<List<Quiz>>(DataSource.getAllQuiz())
+    var score = mutableStateOf("0")
+    var currentQuiz = mutableStateOf<Quiz?>(null)
+    var optionList = mutableStateOf<List<String>>(emptyList())
     private var lastQuiz = mutableStateOf<Quiz?>(null)
 
     init {
@@ -24,33 +27,45 @@ class QueezyViewModel(val context: Context) : ViewModel() {
     }
 
     fun startGame() {
-
-        // there will be a logic which will settles everything to zero
-        // or beause of its started samth happesn actuallly
-
-
+        currentQuiz.value = getRandomQuiz()
+        optionList.value = getOptions()
     }
 
-    fun getRandomQuiz(): Quiz {
+
+
+    private fun getRandomQuiz(): Quiz {
         var chosenQuiz = data.value.random()
-        if (lastQuiz.value == null) {
-            lastQuiz.value = chosenQuiz
-            return chosenQuiz
-        } else {
-            while (lastQuiz.value == chosenQuiz) {
-                chosenQuiz = data.value.random()
-            }
-            lastQuiz.value = chosenQuiz
-            return chosenQuiz
+        while (lastQuiz.value == chosenQuiz) {
+            chosenQuiz = data.value.random()
         }
-
+        lastQuiz.value = chosenQuiz
+        return chosenQuiz
     }
 
-    fun getOptions(): List<String> {
-        val list = emptyList<String>()
-        val resId: Int = data.value.random().name
-        val randomName = context.getString(R.string.resId)
-        if (list.contains(randomName))
+    private fun getOptions(): List<String> {  // before this function getRandomQuiz must be initialized
+        val list = mutableListOf<String>()
+        list.add(currentQuiz.value?.name ?: "")
+        while (list.size != 4) {
+            var randomName = data.value.random().name
+            while (list.contains(randomName)) {
+                randomName = data.value.random().name
+            }
+            list.add(randomName)
+        }
+        return list.shuffled()
+    }
+
+    fun checkAnswerOption(chosenOption: String) {
+        if (chosenOption == currentQuiz.value?.name) {
+            var value = score.value.toInt()
+            value += SCORE_INCREASE
+            score.value = value.toString()
+        } else {
+            var value = score.value.toInt()
+            value -= SCORE_DECREASE
+            score.value = value.toString()
+        }
+        startGame()
     }
 
 
